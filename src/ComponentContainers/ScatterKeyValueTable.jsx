@@ -83,15 +83,17 @@ class ScatterKeyValueTable extends React.Component {
         <td style={style.cell}> Shoe Size </td>
       </tr>
     )
+    let rowCount = 0
     for (let dataPoint of this.props.data) {
       rows.push(
-        <ScatterKeyValueRow key={dataPoint.gender.concat(dataPoint.weight)}
+        <ScatterKeyValueRow key={"row" + rowCount}
           gender={dataPoint.gender} height={dataPoint.height}
           weight={dataPoint.weight} shoeSize={dataPoint.shoeSize}
           updateShoeData={this.props.updateShoeData.bind(this)}
           updateWeightData={this.props.updateWeightData.bind(this)}
           palette={this.props.palette}/>
       )
+      rowCount++
     }
 
     return (
