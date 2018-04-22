@@ -60,7 +60,7 @@ const colorsDark = {
   },
 
   landing: {
-    bg: "url('static/replot_cover_bg.png')",
+    bg: "url('static/img/replot_cover_bg.png')",
   },
 
   getStartedButton: {
