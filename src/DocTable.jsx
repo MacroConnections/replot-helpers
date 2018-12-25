@@ -11,30 +11,30 @@ class DocTable extends React.Component {
       container: {
         border: "solid 1px rgba(0, 0, 0, 0.2)",
         boxShadow: "-2px 2px 5px rgba(0, 0, 0, 0.2)",
-        display:"inline-block",
-        verticalAlign:"top",
-        padding:"20px 40px",
-        height: "45%",
+        display: "inline-block",
+        verticalAlign: "top",
+        padding: "20px 40px",
+        height: this.props.height,
         overflow: "auto",
       },
       header: {
         minWidth: "85px",
-        color: this.props.textColor,
-        fontSize: "0.9rem",
+        color: this.props.fontColor,
+        fontSize: this.props.fontSize,
         fontWeight: "700",
         paddingBottom: "12px",
       },
       cell: {
         minWidth: "75px",
-        color: this.props.textColor,
-        fontSize: "0.8rem",
+        color: this.props.fontColor,
+        fontSize: this.props.fontSize,
         fontWeight: "300",
       }
     }
 
     let rows = []
     rows.push(
-      <tr>
+      <tr key="header">
         <td style={style.header}>ID:</td>
         <td style={style.header}>Title:</td>
       </tr>
@@ -64,14 +64,18 @@ class DocTable extends React.Component {
 DocTable.defaultProps = {
   idKey: "id",
   titleKey: "title",
-  textColor: "#000000"
+  fontColor: "#000000",
+  fontSize: "0.9rem",
+  height: "45%"
 }
 
 DocTable.propTypes = {
   paths: PropTypes.arrayOf(PropTypes.object).isRequired,
   idKey: PropTypes.string,
   titleKey: PropTypes.string,
-  textColor: PropTypes.string
+  fontColor: PropTypes.string,
+  fontSize: PropTypes.string,
+  height: PropTypes.string
 }
 
 export default DocTable
